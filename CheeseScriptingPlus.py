@@ -19,6 +19,7 @@ username = os.getlogin()
 file_path = None  
 text_editor = None
 
+
 def loadfile():
     global file_path, text_editor
     file_path = filedialog.askopenfilename(
@@ -79,9 +80,6 @@ def savefile():
         if file_path:
             savefile()
 
-def show_menu(menu, event):
-    menu.tk_popup(event.x_root, event.y_root)
-
 top_frame = customtkinter.CTkFrame(master=root)
 top_frame.pack(fill="x", padx=5, pady=5)
 
@@ -111,29 +109,43 @@ edit_menu.add_command(label="Cut")
 edit_menu.add_command(label="Copy")
 edit_menu.add_command(label="Paste")
 
-view_menu = tk.Menu(root, tearoff=0)
-view_menu.add_command(label="Zoom In")
-view_menu.add_command(label="Zoom Out")
-
 file_button = customtkinter.CTkButton(
-    master=top_frame, text="File", width=50, height=30, font=("Roboto", 20), fg_color="#3b3b3b", hover_color="#5d5d5d"
+    master=top_frame, text="File", width=50, height=30, font=("Roboto", 20)
 )
+
 file_button.pack(side='left', padx=5, pady=10)
 file_button.bind("<Button-1>", lambda event: show_menu(file_menu, event))
 
 edit_button = customtkinter.CTkButton(
-    master=top_frame, text="Edit", width=50, height=30, font=("Roboto", 20), fg_color="#3b3b3b", hover_color="#5d5d5d"
+    master=top_frame, text="Edit", width=50, height=30, font=("Roboto", 20)
 )
 edit_button.pack(side='left', padx=5, pady=0)
 edit_button.bind("<Button-1>", lambda event: show_menu(edit_menu, event))
 
 view_button = customtkinter.CTkButton(
-    master=top_frame, text="View", width=50, height=30, font=("Roboto", 20), fg_color="#3b3b3b", hover_color="#5d5d5d"
+    master=top_frame, text="View", width=50, height=30, font=("Roboto", 20)
 )
 view_button.pack(side='left', padx=5, pady=0)
 view_button.bind("<Button-1>", lambda event: show_menu(view_menu, event))
 
 button_save = customtkinter.CTkButton(master=top_frame, text="Save", width=50, height=30, font=("Roboto", 20), command=savefile)
 button_save.pack(side='right', padx=5, pady=0)
+
+def system():
+    customtkinter.set_appearance_mode("system")
+
+def dark():
+    customtkinter.set_appearance_mode("dark")
+
+def light():
+    customtkinter.set_appearance_mode("light")
+
+view_menu = tk.Menu(root, tearoff=0)
+view_menu.add_command(label="System", command=system)
+view_menu.add_command(label="Dark", command=dark)
+view_menu.add_command(label="Light", command=light)
+
+def show_menu(menu, event):
+    menu.tk_popup(event.x_root, event.y_root)
 
 root.mainloop()
