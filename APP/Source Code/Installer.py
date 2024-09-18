@@ -67,6 +67,8 @@ def download_file(url, destination):
         print(f"Network error occurred: {e}")
         raise
 
+estimated_size = 28 * 1024
+
 def create_registry_entry():
     with winreg.CreateKey(winreg.HKEY_LOCAL_MACHINE, reg_key) as key:
         winreg.SetValueEx(key, "DisplayName", 0, winreg.REG_SZ, app_name)
@@ -82,6 +84,8 @@ def create_registry_entry():
         
         winreg.SetValueEx(key, "NoModify", 0, winreg.REG_DWORD, 1)
         winreg.SetValueEx(key, "NoRepair", 0, winreg.REG_DWORD, 1)
+
+        winreg.SetValueEx(key, "EstimatedSize", 0, winreg.REG_DWORD, estimated_size)
 
 def create_shortcut(target, icon_path):
     shell = win32com.client.Dispatch("WScript.Shell")
@@ -108,7 +112,7 @@ def show_loading_animation():
 
         loading_label.pack_forget()
         global last_label2
-        last_label2 = customtkinter.CTkLabel(master=frame, text="Completing...", font=("Roboto", 40))
+        last_label2 = customtkinter.CTkLabel(master=frame, text="Finishing...", font=("Roboto", 40))
         last_label2.pack(pady=40, padx=10)
 
         # Create registry entry
