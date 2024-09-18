@@ -1,6 +1,6 @@
 # Cheese-Scripting +
 
-**REQUIRED INSTALLER:** https://github.com/HolyCheeseMan/CheeseScriptingPLUS/blob/Main/Installer.exe
+**REQUIRED INSTALLER:** [Installer.exe](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/raw/refs/heads/Main/Installer.exe)
 
 ![image](https://github.com/user-attachments/assets/044677a0-735a-427c-bb15-6fd191c8df6e)
 
