@@ -42,7 +42,7 @@ os.makedirs(destination_folder, exist_ok=True)
 
 reg_key = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\CheeseScriptingPlus"
 app_name = "Cheese Scripting +"
-app_version = "1.0.0 - VD18M09Y24"
+app_version = "Installer Version: VD20M09Y24"
 app_publisher = "Holy Cheese Man"
 app_install_location = exe_path
 app_uninstall_string = os.path.join(destination_folder, 'Uninstaller.exe')
@@ -52,6 +52,7 @@ install_date = datetime.datetime.now().strftime("%Y%m%d")
 url_main = "https://github.com/HolyCheeseMan/CheeseScriptingPLUS/raw/refs/heads/Main/APP/CheeseScriptingPlus.exe"
 url_uninstaller = "https://github.com/HolyCheeseMan/CheeseScriptingPLUS/raw/refs/heads/Main/APP/Uninstaller.exe"
 url_icon = "https://raw.githubusercontent.com/HolyCheeseMan/CheeseScriptingPLUS/refs/heads/Main/APP/CSPICON.ico"
+url_info = "https://raw.githubusercontent.com/HolyCheeseMan/CheeseScriptingPLUS/refs/heads/Main/APP/info.csp"
 
 def csplus():
     webbrowser.open('https://github.com/HolyCheeseMan/CheeseScriptingPLUS/blob/Main/README.md')
@@ -120,6 +121,24 @@ def show_loading_animation():
 
         # Create shortcut
         create_shortcut(exe_path, icon_destination)
+
+        download_file(url_info, os.path.join(destination_folder, 'info.csp'))
+
+        preferences_dir = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\APP"
+        preferences_file = os.path.join(preferences_dir, "userpreferences.csp")
+        last_file = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\APP\info.csp"
+        mode = "Dark"
+
+        with open(preferences_file, 'w') as file:
+            file.write("< CSP ADMIN >\n")
+            file.write("user-preference {\n")
+            file.write("\tappearance {\n")
+            file.write(f"\t\tmode = *{mode}*\n")
+            file.write("\t}\n")
+            file.write("\tlast_opened_file {\n")
+            file.write(f"\t\tfile = *{last_file}*\n")
+            file.write("\t}\n")
+            file.write("}\n")
 
         # Proceed to final message
         root.after(2000, show_final_message)
