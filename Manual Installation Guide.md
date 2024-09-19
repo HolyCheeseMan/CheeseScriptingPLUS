@@ -7,7 +7,8 @@ Manual Step By Step:
 - Download everything in [APP](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/tree/Main/APP)
 - Create a folder in **%appdata%/Roaming/HolyCheeseMan/CheeseScriptingPlus/APP/**
 - Move all the files in [APP](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/tree/Main/APP) (Source code not needed) into **%appdata%/Roaming/HolyCheeseMan/CheeseScriptingPlus/APP/**
-- Create a shortcut on your desktop, attach it too **CheeseScriptingPlus.exe** is in
+- Right click on **CheeseScriptingPlus.exe** and do **show more options** and then click **Create Shortcut**
+- Drag the shortcut where you please.
 - Run the shortcut, and It should work.
 
 # Problems with manual installation:
