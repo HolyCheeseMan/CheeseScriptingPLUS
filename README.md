@@ -19,7 +19,8 @@ Check out the OG Cheese Scripting: [Cheese Scripting](https://github.com/HolyChe
 **Warnings!**
 If you have scanned this file with Virus Total, you may have seen this:
 
-![image](https://github.com/user-attachments/assets/14ac5d07-0431-4380-87b6-992630693585)
+![image](https://github.com/user-attachments/assets/58b7c7c7-fa27-4131-bddb-28720dbecfd6)
+
 
 These are false positives, the python file (soure code here: [Source Code](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/tree/Main/APP/Source%20Code) ) is safe but was converted to exe with pyinstaller for simplicity of installation. You can still run the installer.py and be fine. 
 Reasons that these false positives show up can be because of how PyInstaller packages the code. When PyInstaller packages the code it can sometimes obfuscate it, leading to false positives.
