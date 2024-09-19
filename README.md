@@ -23,8 +23,11 @@ If you have scanned this file with Virus Total, you may have seen this: ([Pyinst
 
 
 These are false positives, the python file (soure code here: [Source Code](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/tree/Main/APP/Source%20Code) ) is safe but was converted to exe with pyinstaller for simplicity of installation. You can still run the installer.py and be fine. 
-Reasons that these false positives show up can be because of how PyInstaller packages the code. When PyInstaller packages the code it can sometimes obfuscate it, leading to false positives.
-It is also shown here:
+Reasons that these false positives show up can be: 
+- How PyInstaller packages the code. When PyInstaller packages the code it can sometimes obfuscate it, leading to false positives.
+- Many Python-based viruses use pyinstaller to format into exe. Virus total now gives false positives to normal scripts because they use a similar exe build.
+- Video Example: 
+It is also shown here: [Pyinstaller False Positives](https://www.youtube.com/watch?v=C38uN7xdaZo)
 ![image](https://github.com/user-attachments/assets/9b5e108b-8050-4e06-ba4b-0885b5003d80)
 
 
