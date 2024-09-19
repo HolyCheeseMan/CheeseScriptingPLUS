@@ -5,7 +5,7 @@
 ![image](https://github.com/user-attachments/assets/044677a0-735a-427c-bb15-6fd191c8df6e)
 
 
-Advanced application for making coding batch easy for windows.
+Advanced application for making coding easy for windows.
 
 Cheese Scripting uses python to run in .exe form, and has a variety of tools to make your life easier!
 
@@ -13,7 +13,8 @@ Cheese Scripting uses python to run in .exe form, and has a variety of tools to 
 
 Check out the OG Cheese Scripting: [Cheese Scripting](https://github.com/HolyCheeseMan/Cheese-Scripting/blob/Main/README.md)
 
-![image](https://github.com/user-attachments/assets/3ec02969-528d-4a29-9b11-b8d8ac8832fc)
+![image](https://github.com/user-attachments/assets/cd2c1ba8-7ebf-4273-a44b-9cc14fd0262e)
+
 
 
 **Warnings!**
