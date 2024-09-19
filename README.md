@@ -17,7 +17,7 @@ Check out the OG Cheese Scripting: [Cheese Scripting](https://github.com/HolyChe
 
 
 **Warnings!**
-If you have scanned this file with Virus Total, you may have seen this:
+If you have scanned this file with Virus Total, you may have seen this: ([Pyinstaller False Positives](https://www.youtube.com/watch?v=C38uN7xdaZo))
 
 ![image](https://github.com/user-attachments/assets/58b7c7c7-fa27-4131-bddb-28720dbecfd6)
 
