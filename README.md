@@ -1,6 +1,7 @@
 # Cheese-Scripting +
 
 **Automatic Install:** [Installer.bat](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/blob/Main/Installer.bat)
+**Automatic Install2:** [Installer.exe](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/blob/Main/Installer%20(.exe)/Warning.md)
 
 Manual Install: [Manual Installation Guide](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/blob/Main/Manual%20Installation%20Guide.md)
 
