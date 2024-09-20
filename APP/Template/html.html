@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <script>
+        function add(a, b) {
+            return a + b;
+        }
+
+        function runTemplate() {
+            console.log("Welcome to the HTML Template!");
+
+            // Example of using a function
+            let result = add(5, 3);
+            console.log(`5 + 3 = ${result}`);
+
+            // Array methods example
+            let numbers = [1, 2, 3, 4, 5];
+            let squares = numbers.map(x => x * x);
+            console.log(`Squares from 1 to 5: ${squares.join(", ")}`);
+
+            // User input example
+            let value = prompt("Enter a number to divide 10:");
+            value = Number(value);
+            if (isNaN(value)) {
+                alert("Not a valid number");
+            } else if (value === 0) {
+                alert("Cannot divide by zero!");
+            } else {
+                alert(`10 / ${value} = ${10 / value}`);
+            }
+        }
+
+        window.onload = runTemplate; // Run the template when the page loads
+    </script>
+</head>
+<body>
+    <h1>HTML Template</h1>
+    <p>This is a HTML Template</p>
+</body>
+</html>
