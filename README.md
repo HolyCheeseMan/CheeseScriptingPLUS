@@ -18,7 +18,8 @@ Check out the OG Cheese Scripting: [Cheese Scripting](https://github.com/HolyChe
 
 ![image](https://github.com/user-attachments/assets/ebc77fe2-c67b-4272-a502-aaa4d34a0e0d)
 
-![image](https://github.com/user-attachments/assets/f6a58488-b9fd-47d2-8769-9956e736d733)
+![image](https://github.com/user-attachments/assets/9d3a5601-9a79-427d-aa65-ab9c7d39253e)
+
 
 
 
