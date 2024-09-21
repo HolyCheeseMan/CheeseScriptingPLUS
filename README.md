@@ -26,6 +26,9 @@ If you have scanned this file with Virus Total, you may have seen this: ([Pyinst
 
 ![image](https://github.com/user-attachments/assets/58b7c7c7-fa27-4131-bddb-28720dbecfd6)
 
+![image](https://github.com/user-attachments/assets/f6a58488-b9fd-47d2-8769-9956e736d733)
+
+
 
 These are false positives, the python file (soure code here: [Source Code](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/tree/Main/APP/Source%20Code) ) is safe but was converted to exe with pyinstaller for simplicity of installation. You can still run the installer.py and be fine. 
 Reasons that these false positives show up can be: 
