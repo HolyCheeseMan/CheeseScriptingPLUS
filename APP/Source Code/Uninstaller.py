@@ -1,3 +1,4 @@
+import shutil
 import customtkinter
 import os
 from pathlib import Path
@@ -34,6 +35,9 @@ root.title("Uninstaller")
 username = os.getenv('USERNAME') or os.getenv('USER')
 file_path = Path(f'C:/Users/{username}/AppData/Roaming/HolyCheeseMan/CheeseScriptingPlus/APP/CheeseScriptingPlus.exe')
 file_path2 = Path(f'C:/Users/{username}/AppData/Roaming/HolyCheeseMan/CheeseScriptingPlus/APP/CSPICON.ico')
+file_path3 = Path(f'C:/Users/{username}/AppData/Roaming/HolyCheeseMan/CheeseScriptingPlus/APP/info.csp')
+
+template_folder = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\APP\Template"
 
 def csplus():
     print("Moving To Browser")
@@ -57,15 +61,23 @@ def show_loading_animation():
     loading_label = customtkinter.CTkLabel(master=frame, text="Uninstalling...", font=("Roboto", 40))
     loading_label.pack(pady=40, padx=10)
     
-    if file_path.exists():
-        file_path.unlink()
+    try:
+        if file_path.exists():
+            file_path.unlink()
+        if file_path2.exists():
+            file_path2.unlink()
+        if file_path3.exists():
+            file_path3.unlink()
 
-    if file_path2.exists():
-        file_path2.unlink()
-    
-    delete_registry_key()
+        if os.path.exists(template_folder):
+            shutil.rmtree(template_folder)
+        
+        delete_registry_key()
+    except Exception as e:
+        messagebox.showerror("Error", f"An error occurred during uninstallation: {e}")
     
     root.after(2000, show_final_message)
+
 
 def show_final_message():
     loading_label.pack_forget() 
