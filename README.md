@@ -13,9 +13,11 @@ Advanced application for making coding easy for windows.
 Cheese Scripting Plus uses python to run in .exe form, and has a variety of tools to make your life easier!
 
 Cheese Scripting Plus used customtkinter for the GUI - Special thanks to Tom Schimansky.
+
 [Customtkinter](https://github.com/TomSchimansky/CustomTkinter)
+
 How can I use CustomTkinter? In python terminal write:
-`pip install customtkinter`
+**`pip install customtkinter`**
 
 **It is recommended to use the Installer for this application.**
 
