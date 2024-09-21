@@ -9,8 +9,8 @@ Ctrl+Z = Undo
 Ctrl+Y = Redo
 Ctrl+F = Find
 Ctrl+R = Run
-Ctrl+= = Zoom In
-Ctrl+- = Zoom Out
+Ctrl+Equals = Zoom In
+Ctrl+Minus = Zoom Out
 Ctrl+Shift+T = Templates
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
