@@ -110,23 +110,6 @@ if exist "%info_path%" (
 set "userpreferences_path=C:\Users\%username%\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\APP\userpreferences.csp"
 echo Set Variable "userpreferences_path" to "%userpreferences_path%"
 
-@echo user-preference {>>"%userpreferences_path%"
-echo Copied "user-preference {" to "%userpreferences_path%"
-@echo	appearance {>>"%userpreferences_path%"
-echo Copied "appearance {" to "%userpreferences_path%"
-@echo		mode = *Dark*>>"%userpreferences_path%"
-echo Copied "mode = *Dark*" to "%userpreferences_path%"
-@echo	}>>"%userpreferences_path%"
-echo Copied "}" to "%userpreferences_path%"
-@echo	last_opened_file {>>"%userpreferences_path%"
-echo Copied "last_opened_file {" to "%userpreferences_path%"
-@echo		file = *%info_path%*>>"%userpreferences_path%"
-echo Copied "file = *%info_path%*" to "%userpreferences_path%"
-@echo	}>>"%userpreferences_path%"
-echo Copied "}" to "%userpreferences_path%"
-@echo }>>"%userpreferences_path%"
-echo Copied "}" to "%userpreferences_path%"
-
 reg add "HKLM\%reg_key%" /v "DisplayName" /t REG_SZ /d "%app_name%" /f
 if errorlevel 1 echo Failed to create DisplayName for "HKLM\%reg_key%" and "%app_name%"
 echo Regedit: DisplayName, for "HKLM\%reg_key%" and "%app_name%"
