@@ -18,6 +18,8 @@ Check out the OG Cheese Scripting: [Cheese Scripting](https://github.com/HolyChe
 
 ![image](https://github.com/user-attachments/assets/ebc77fe2-c67b-4272-a502-aaa4d34a0e0d)
 
+![image](https://github.com/user-attachments/assets/f6a58488-b9fd-47d2-8769-9956e736d733)
+
 
 
 # Warning!
@@ -26,7 +28,6 @@ If you have scanned this file with Virus Total, you may have seen this: ([Pyinst
 
 ![image](https://github.com/user-attachments/assets/58b7c7c7-fa27-4131-bddb-28720dbecfd6)
 
-![image](https://github.com/user-attachments/assets/f6a58488-b9fd-47d2-8769-9956e736d733)
 
 
 
