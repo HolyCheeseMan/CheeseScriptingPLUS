@@ -16,7 +16,8 @@ Cheese Scripting uses python to run in .exe form, and has a variety of tools to 
 
 Check out the OG Cheese Scripting: [Cheese Scripting](https://github.com/HolyCheeseMan/Cheese-Scripting/blob/Main/README.md)
 
-![image](https://github.com/user-attachments/assets/cd2c1ba8-7ebf-4273-a44b-9cc14fd0262e)
+![image](https://github.com/user-attachments/assets/ebc77fe2-c67b-4272-a502-aaa4d34a0e0d)
+
 
 
 # Warning!
