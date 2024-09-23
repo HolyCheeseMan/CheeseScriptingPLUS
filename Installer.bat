@@ -1,3 +1,32 @@
+@echo off
+    IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
+>nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
+) ELSE (
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+)
+
+if '%errorlevel%' NEQ '0' (
+    echo Requesting administrative privileges...
+    goto UACPrompt
+) else ( goto gotAdmin )
+
+:UACPrompt
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+    set params= %*
+    echo UAC.ShellExecute "cmd.exe", "/c ""%~s0"" %params:"=""%", "", "runas", 1 >> "%temp%\getadmin.vbs"
+
+    "%temp%\getadmin.vbs"
+    del "%temp%\getadmin.vbs"
+    exit /B
+
+:gotAdmin
+    pushd "%CD%"
+    CD /D "%~dp0" 
+
+
+rmdir /s /q "C:\Users\%USERNAME%\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\APP"
+timeout /t 2 > NUL
+
 set "log_file=%~dp0installation_log.txt"
 
 call :LOG > %log_file%
@@ -22,11 +51,11 @@ set "reg_key=SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\CheeseScripting
 echo Set Variable "reg_key" to "%reg_key%"
 set "app_name=Cheese Scripting +"
 echo Set Variable "app_name" to "%app_name%"
-set "app_version=Installer Version: VD23M09Y24"
+set "app_version=Installer Version: VD23M09Y24/1"
 echo Set Variable "app_version" to "%app_version%"
 set "app_publisher=Holy Cheese Man"
 echo Set Variable "app_publisher" to "%app_publisher%"
-set "app_uninstall_string=%destination_folder%\Uninstaller.exe"
+set "app_uninstall_string=C:\Users\%username%\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\Uninstaller.exe"
 echo Set Variable "app_uninstall_string" to "%app_uninstall_string%"
 set "install_date=%date:~10,4%%date:~4,2%%date:~7,2%"
 echo Set Variable "install_date" to "%install_date%"
@@ -38,31 +67,7 @@ echo Set Variable "url_uninstaller" to "%url_uninstaller%"
 set "url_icon=https://raw.githubusercontent.com/HolyCheeseMan/CheeseScriptingPLUS/refs/heads/Main/APP/CSPICON.ico"
 echo Set Variable "url_icon" to "%url_icon%"
 set "url_info=https://raw.githubusercontent.com/HolyCheeseMan/CheeseScriptingPLUS/refs/heads/Main/APP/info.csp"
-echo Set Variable "url_info" to "%url_info%"
-
-    IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
->nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
-) ELSE (
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-)
-
-if '%errorlevel%' NEQ '0' (
-    echo Requesting administrative privileges...
-    goto UACPrompt
-) else ( goto gotAdmin )
-
-:UACPrompt
-    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
-    set params= %*
-    echo UAC.ShellExecute "cmd.exe", "/c ""%~s0"" %params:"=""%", "", "runas", 1 >> "%temp%\getadmin.vbs"
-
-    "%temp%\getadmin.vbs"
-    del "%temp%\getadmin.vbs"
-    exit /B
-
-:gotAdmin
-    pushd "%CD%"
-    CD /D "%~dp0"  
+echo Set Variable "url_info" to "%url_info%" 
 
 mkdir "%destination_folder%"
 echo Created Folder "%destination_folder%"
