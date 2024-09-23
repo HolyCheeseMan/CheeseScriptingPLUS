@@ -33,15 +33,10 @@ root.minsize(500, 250)
 root.title("Uninstaller")
 
 username = os.getenv('USERNAME') or os.getenv('USER')
-file_path = Path(f'C:/Users/{username}/AppData/Roaming/HolyCheeseMan/CheeseScriptingPlus/APP/CheeseScriptingPlus.exe')
-file_path2 = Path(f'C:/Users/{username}/AppData/Roaming/HolyCheeseMan/CheeseScriptingPlus/APP/CSPICON.ico')
-file_path3 = Path(f'C:/Users/{username}/AppData/Roaming/HolyCheeseMan/CheeseScriptingPlus/APP/info.csp')
-
-template_folder = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\APP\Template"
 
 def csplus():
     print("Moving To Browser")
-    url = 'https://github.com/HolyCheeseMan/Cheese-Scripting/blob/Main/README.md'
+    url = 'https://github.com/HolyCheeseMan/'
     webbrowser.open(url)
 
 def delete_registry_key():
@@ -60,22 +55,18 @@ def show_loading_animation():
     global loading_label
     loading_label = customtkinter.CTkLabel(master=frame, text="Uninstalling...", font=("Roboto", 40))
     loading_label.pack(pady=40, padx=10)
-    
-    try:
-        if file_path.exists():
-            file_path.unlink()
-        if file_path2.exists():
-            file_path2.unlink()
-        if file_path3.exists():
-            file_path3.unlink()
 
-        if os.path.exists(template_folder):
-            shutil.rmtree(template_folder)
+    try:
+        folder_to_delete = Path(f'C:/Users/{username}/AppData/Roaming/HolyCheeseMan/CheeseScriptingPlus/APP')
+
+        if folder_to_delete.exists() and folder_to_delete.is_dir():
+            shutil.rmtree(folder_to_delete)
+            print(f"Deleted folder: {folder_to_delete}")
         
         delete_registry_key()
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred during uninstallation: {e}")
-    
+
     root.after(2000, show_final_message)
 
 
@@ -95,13 +86,13 @@ def unistall():
 frame = customtkinter.CTkFrame(master=root)
 frame.pack(pady=5, padx=5, fill="both", expand=True)
 
-label = customtkinter.CTkLabel(master=frame, text="Do you want to uninstall Cheese Scripting?", font=("Roboto", 24))
+label = customtkinter.CTkLabel(master=frame, text="Do you want to uninstall Cheese Scripting +?", font=("Roboto", 24))
 label.pack(pady=16, padx=10)
 
 button = customtkinter.CTkButton(master=frame, text="Uninstall", width=100, height=50, font=("Roboto", 30), command=unistall)
 button.pack(pady=20, padx=10)
 
-button2 = customtkinter.CTkButton(master=frame, text="Cheese Scripting", width=100, height=35, font=("Roboto", 20), command=csplus)
+button2 = customtkinter.CTkButton(master=frame, text="Github", width=100, height=35, font=("Roboto", 20), command=csplus)
 button2.pack(pady=10, padx=10)
 
 run_as_admin()
