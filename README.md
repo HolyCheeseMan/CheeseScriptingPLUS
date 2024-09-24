@@ -7,7 +7,7 @@ Installation Options:
 ![image](https://github.com/user-attachments/assets/044677a0-735a-427c-bb15-6fd191c8df6e)
 
 
-Advanced application for making coding easy for windows.
+Advanced **source code** application for making coding easy for windows.
 
 Cheese Scripting Plus uses python to run in .exe form, and has a variety of tools to make your life easier!
 
