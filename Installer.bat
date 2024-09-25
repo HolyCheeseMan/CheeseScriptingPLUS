@@ -51,7 +51,7 @@ set "reg_key=SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\CheeseScripting
 echo Set Variable "reg_key" to "%reg_key%"
 set "app_name=Cheese Scripting +"
 echo Set Variable "app_name" to "%app_name%"
-set "app_version=Installer Version: VD23M09Y24/1"
+set "app_version=Installer Version: VD25M09Y24"
 echo Set Variable "app_version" to "%app_version%"
 set "app_publisher=Holy Cheese Man"
 echo Set Variable "app_publisher" to "%app_publisher%"
