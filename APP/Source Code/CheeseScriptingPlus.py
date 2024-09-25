@@ -23,7 +23,7 @@ except Exception as e:
 preferences_dir = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\APP"
 preferences_user_dir = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus"
 preferences_file = os.path.join(preferences_user_dir, "userpreferences.csp")
-version_current_file = "VD25M09Y24"
+version_current_file = "VD25M09Y24/1"
 
 destination_installer = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\Installer.bat"
 
@@ -702,6 +702,7 @@ def plugins():
     if os.path.exists(destination_example):
         print(fr"Plugin Exists: {destination_example}")
     else:
+        os.makedirs(plugin_folder, exist_ok=True)
         print(f"{destination_example} does not exist.")
         urls = {
             'Example_Plugin.py': 'https://raw.githubusercontent.com/HolyCheeseMan/CheeseScriptingPLUS/refs/heads/Main/Plugins/Example_Plugin.py',
