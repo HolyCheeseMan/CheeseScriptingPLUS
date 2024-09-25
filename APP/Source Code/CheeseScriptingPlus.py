@@ -1,3 +1,4 @@
+import sys
 import time
 import customtkinter
 import tkinter as tk
@@ -531,6 +532,7 @@ def install_new_version(update_window):
             print(f"Downloaded: {filename}")
     if os.path.exists(destination_installer):
         subprocess.Popen([destination_installer], creationflags=subprocess.CREATE_NEW_CONSOLE)
+        sys.exit()
     else:
         print(f"{destination_installer} does not exist, failed.")
         messagebox.showerror("Error", "Installation failed, try installing manually or check internet.")
