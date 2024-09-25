@@ -22,7 +22,7 @@ except Exception as e:
 preferences_dir = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\APP"
 preferences_user_dir = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus"
 preferences_file = os.path.join(preferences_user_dir, "userpreferences.csp")
-version_current_file = "VD23M09Y24/1"
+version_current_file = "VD25M09Y24"
 
 destination_installer = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\Installer.bat"
 
@@ -144,6 +144,7 @@ def loadfile():
                        ("Java Files", "*.java"), 
                        ("C# Files", "*.cs"), 
                        ("Lua Files", "*.lua")],
+            initialdir = fr"C:\Users\{username}\Downloads",
         title="Open File"
     )
     if file_path:
@@ -446,6 +447,7 @@ def check_for_update():
         version_label.pack(pady=15)
         server_version_label = customtkinter.CTkLabel(current_version_window, text=f"Latest Version: {latest_version}", font=("Roboto", 20))
         server_version_label.pack(pady=1)
+        print(fr"No Updates Needed - {local_current_version}")
     else:
         update_window = customtkinter.CTkToplevel(root)
         update_window.title(fr"Update Available: {latest_version}")
@@ -457,6 +459,7 @@ def check_for_update():
         version_label.pack(pady=10)
         install_button = customtkinter.CTkButton(update_window, text="Install", font=("Roboto", 24), command=lambda: install_new_version(update_window))
         install_button.pack(pady=1)
+        print(fr"Updates Needed - Current:{local_current_version}, Needed:{latest_version}")
 
     if os.path.exists(cur_ver):
         os.unlink(cur_ver)
@@ -500,6 +503,7 @@ def check_for_update_silent():
         version_label.pack(pady=10)
         install_button = customtkinter.CTkButton(update_window, text="Install", font=("Roboto", 24), command=lambda: install_new_version(update_window))
         install_button.pack(pady=1)
+        print(fr"Updates Needed - Current:{local_current_version}, Needed:{latest_version}")
 
     if os.path.exists(cur_ver):
         os.unlink(cur_ver)
@@ -635,12 +639,6 @@ label.pack(side='left', padx=5, pady=10)
 button_save = customtkinter.CTkButton(master=top_frame, text="Save", width=50, height=30, font=("Roboto", 20), command=savefile)
 button_save.pack(side='right', padx=5, pady=0)
 
-tick_label = customtkinter.CTkLabel(master=top_frame, text="", font=("Roboto", 20), text_color="green")
-tick_label.pack(side='right', padx=5, pady=10)
-
-new_label = customtkinter.CTkLabel(master=top_frame, text="", font=("Roboto", 20), text_color="grey")
-new_label.pack(side='right', padx=5, pady=10)
-
 editor_frame = customtkinter.CTkFrame(master=root, fg_color="#2e2e2e")
 editor_frame.pack(pady=10, padx=20, fill="both", expand=True)
 
@@ -664,6 +662,110 @@ scrollbar.config(
     width=20,
     relief="flat"
 )
+
+def set_current(path):
+        global current
+        current = path
+        print(f"Selected plugin: {current}")
+        execute_script(path)
+
+def execute_script(path):
+        print(fr"Executing {path}")
+        with open(current, 'r') as file:
+            script_plugin = file.read().strip()
+
+        print("\n", script_plugin)
+
+        try:
+            exec(script_plugin)
+        except Exception as e:
+            print(f"Error running the code: {e}")
+            messagebox.showerror("Error", f"Error running the code/plugin: {e}")
+
+def plugins():
+
+    try:
+        username = os.getlogin()
+    except Exception as e:
+        print(f"Error getting username: {e}")
+        username = "DefaultUser"
+
+    plugin_folder = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\Plugins"
+    global current
+    current = ""
+
+    destination_example = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\Plugins\Example_Plugin.py"
+
+    print(fr"Checking for {destination_example}")
+    if os.path.exists(destination_example):
+        print(fr"Plugin Exists: {destination_example}")
+    else:
+        print(f"{destination_example} does not exist.")
+        urls = {
+            'Example_Plugin.py': 'https://raw.githubusercontent.com/HolyCheeseMan/CheeseScriptingPLUS/refs/heads/Main/Plugins/Example_Plugin.py',
+        }
+        destination_folder = fr"C:\Users\{username}\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\Plugins"
+        for filename, url in urls.items():
+            response = requests.get(url)
+            if response.status_code == 200:
+                with open(os.path.join(destination_folder, filename), 'wb') as file:
+                    file.write(response.content)
+                print(f"Downloaded: {filename}")
+
+    root_plugin = customtkinter.CTkToplevel(root)
+    root_plugin.geometry("300x500")
+    root_plugin.minsize(300, 500)
+    root_plugin.resizable(False, False)
+    root_plugin.title("Plugin Executor")
+    root_plugin.attributes("-topmost", True)
+
+    os.makedirs(plugin_folder, exist_ok=True)
+
+    def list_plugins():
+        print("Listing Plugins")
+        for widget in scrollable_frame.winfo_children():
+            widget.destroy()
+
+        try:
+            plugin_files = os.listdir(plugin_folder)
+        except Exception as e:
+            print(f"Error listing plugins: {e}")
+            plugin_files = []
+
+        for plugin in plugin_files:
+            plugin_path = os.path.join(plugin_folder, plugin)
+            button = customtkinter.CTkButton(master=scrollable_frame, text=plugin, width=250, font=("Roboto", 16), command=lambda p=plugin_path: set_current(p))
+            button.pack(pady=5)
+
+    def installation_location_plugin():
+        directory = (plugin_folder)
+        os.startfile(directory)
+
+    top_frame_plugin = customtkinter.CTkFrame(master=root_plugin)
+    top_frame_plugin.pack(fill="x", padx=5, pady=5)
+
+    refresh_button = customtkinter.CTkLabel(top_frame_plugin, text="Plugin Executor", width=10, height=10, font=("Roboto", 20))
+    refresh_button.pack(side="left", padx=5, pady=5)
+
+    refresh_button = customtkinter.CTkButton(top_frame_plugin, text="⟳", width=10, height=10, font=("Roboto", 20), command=list_plugins)
+    refresh_button.pack(side="right", padx=5, pady=5)
+
+    refresh_button = customtkinter.CTkButton(top_frame_plugin, text="🗀", width=10, height=10, font=("Roboto", 20), command=installation_location_plugin)
+    refresh_button.pack(side="right", padx=1, pady=5)
+
+    scrollable_frame = customtkinter.CTkScrollableFrame(master=root_plugin, width=250, height=450)
+    scrollable_frame.pack(padx=5, pady=5)
+
+    list_plugins()
+
+plugin_button = customtkinter.CTkButton(master=top_frame, text="Plugins", width=50, height=30, font=("Roboto", 20), command=plugins)
+plugin_button.pack(side='right', padx=5, pady=0)
+
+tick_label = customtkinter.CTkLabel(master=top_frame, text="", font=("Roboto", 20), text_color="green")
+tick_label.pack(side='right', padx=5, pady=10)
+
+new_label = customtkinter.CTkLabel(master=top_frame, text="", font=("Roboto", 20), text_color="grey")
+new_label.pack(side='right', padx=5, pady=10)
 
 load_preferences()
 check_for_update_silent()
