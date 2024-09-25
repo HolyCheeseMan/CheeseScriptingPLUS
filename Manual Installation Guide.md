@@ -17,6 +17,7 @@ Problems with manual installation are:
 
 - Difficult too uninstall - You have to go the the Uninstaller.exe file location and run it.
 - You wont see it in **Add or Remove programs** like this:
-![image](https://cdn.discordapp.com/attachments/1279008615574798418/1286468954377687150/image.png?ex=66ee0514&is=66ecb394&hm=fa0329b9c294061f8558974b8cbda924544020f7e1584c2f237253037b76c2bf&)
+![image](https://github.com/user-attachments/assets/5a18cba1-99d3-4e90-87a8-53b9f0976c07)
+
 
 Fix: [Automatic Installation](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/blob/Main/Installer.bat)
