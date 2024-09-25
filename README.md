@@ -24,9 +24,11 @@ How can I use CustomTkinter? In python terminal write:
 
 Check out the OG Cheese Scripting: [Cheese Scripting](https://github.com/HolyCheeseMan/Cheese-Scripting/blob/Main/README.md)
 
-![image](https://github.com/user-attachments/assets/ebc77fe2-c67b-4272-a502-aaa4d34a0e0d)
+![image](https://github.com/user-attachments/assets/e97843cf-1079-441d-ae37-60b4d798bc73)
 
-![image](https://github.com/user-attachments/assets/9d3a5601-9a79-427d-aa65-ab9c7d39253e)
+
+![image](https://github.com/user-attachments/assets/c79feaed-2b59-4e48-909f-2d2434a6433c)
+
 
 
 
