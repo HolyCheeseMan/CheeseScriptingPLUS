@@ -48,6 +48,7 @@ Reasons that these false positives show up can be:
 - Many Python-based viruses use pyinstaller to format into exe. Virus total now gives false positives to normal scripts because they use a similar exe build.
 - Video Example: 
 It is also shown here: [Pyinstaller False Positives](https://www.youtube.com/watch?v=C38uN7xdaZo)
+
 ![image](https://github.com/user-attachments/assets/9b5e108b-8050-4e06-ba4b-0885b5003d80)
 
 
