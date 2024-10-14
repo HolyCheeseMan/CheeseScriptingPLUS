@@ -49,13 +49,6 @@ Reasons that these false positives show up can be:
 - Video Example: 
 It is also shown here: [Pyinstaller False Positives](https://www.youtube.com/watch?v=C38uN7xdaZo)
 
-
-# Thing to note:
-
-**If you are doing manual installation included with the uninstaller, than name the `CheeseScripting.bat` file to `Cheese Scripting.bat`**
-
-This is due to limitations to this application as it is not supported often or at all.
-
 ![image](https://github.com/user-attachments/assets/9b5e108b-8050-4e06-ba4b-0885b5003d80)
 
 
