@@ -1,5 +1,7 @@
 # Cheese-Scripting +
 
+## INSTALL HERE: **[Install](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/releases/tag/APP)**
+
 Installation Options:
 - **Automatic Install:** [Installer.bat](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/blob/Main/Installer.bat)
 - Manual Install: [Manual Installation Guide](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/blob/Main/Manual%20Installation%20Guide.md)
