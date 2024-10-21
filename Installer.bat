@@ -27,13 +27,9 @@ if '%errorlevel%' NEQ '0' (
 rmdir /s /q "C:\Users\%USERNAME%\AppData\Roaming\HolyCheeseMan\CheeseScriptingPlus\APP"
 timeout /t 2 > NUL
 
-set "log_file=%~dp0installation_log.txt"
+cls
 
-call :LOG > %log_file%
-exit /B
-
-:LOG
-@echo off
+powershell write-host -back red -fore white Log:
 
 echo [%date% %time%] - Installation:
 echo -------------------------------------------
@@ -213,9 +209,9 @@ echo Clearing Temp Files
 
 del "%temp%\CreateShortcut.vbs"
 
+set "title=Cheese Scripting +"
+set "message=Cheese Scripting + Has Finish Installing."
 
-
-echo Installation Complete,
-echo Opening %log_file%
-start notepad "%log_file%"
-exit
+powershell write-host -back darkblue -fore white Installation Complete.
+powershell -Command "& {Add-Type -AssemblyName System.Windows.Forms; Add-Type -AssemblyName System.Drawing; $notify = New-Object System.Windows.Forms.NotifyIcon; $notify.Icon = [System.Drawing.SystemIcons]::Information; $notify.Visible = $true; $notify.ShowBalloonTip(0, 'Cheese Scripting +', 'Cheese Scripting + Has Finish Installing.', [System.Windows.Forms.ToolTipIcon]::None)}"
+pause
