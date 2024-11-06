@@ -1,4 +1,7 @@
 @echo off
+title cmd.exe ---installing CheeseScripting+
+powershell write-host -back red -fore white Checking Requirements
+echo Checking if installed:
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
 ) ELSE (
