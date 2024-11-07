@@ -4,25 +4,7 @@ import os
 from pathlib import Path
 import winreg
 import webbrowser
-import ctypes
 import tkinter.messagebox as messagebox
-import sys
-
-def is_admin():
-    try:
-        return ctypes.windll.shell32.IsUserAnAdmin()
-    except:
-        return False
-
-def run_as_admin():
-    if not is_admin():
-        try:
-            ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
-            sys.exit()
-        except Exception as e:
-            print(f"Error running as admin: {e}")
-            messagebox.showerror("Error", "Failed to elevate to admin.")
-            sys.exit()
 
 customtkinter.set_appearance_mode("system")
 customtkinter.set_default_color_theme("dark-blue")
@@ -94,7 +76,5 @@ button.pack(pady=20, padx=10)
 
 button2 = customtkinter.CTkButton(master=frame, text="Github", width=100, height=35, font=("Roboto", 20), command=csplus)
 button2.pack(pady=10, padx=10)
-
-run_as_admin()
 
 root.mainloop()
