@@ -1,6 +1,6 @@
 # Cheese-Scripting +
 
-### INSTALL HERE: **[Install](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/releases/tag/Latest)**
+### INSTALL HERE: **[v1.0.2 - Latest](https://github.com/HolyCheeseMan/CheeseScriptingPLUS/releases/tag/Latest)**
 
 
 
